@@ -1,14 +1,14 @@
-package ru.netology;
+package ru.netology.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+import ru.netology.data.DataGenerator;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -23,7 +23,7 @@ public class CardDeliveryDateTest {
     @Test
     @DisplayName("Should successful plan meeting")
     void shouldCreateSuccessfulMeetingPlan() {
-        DataGenerator.UserInfo validUser = DataGenerator.Registration.generatorUser("ru");
+        DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
         int daysToAddForFirstMeeting = 4;
         String MeetingDateFirst = DataGenerator.generateDate(daysToAddForFirstMeeting);
         int daysToAddForSecondMeeting = 7;
